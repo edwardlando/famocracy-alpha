@@ -1,0 +1,54 @@
+<h3>Hello, <%= current_user.name %>, and welcome to Famocracy!</h3>
+
+<% if user_signed_in? && !current_user.artist.nil? %>
+
+<p>I am Y, a popular artist on Famocracy with a total of XXX famos
+  invested in me. As a tradition on Famocracy, artists who gained 
+  fame are responsible for helping newbies reach a similar level. 
+  That means that I am at your disposal to answer your questions 
+  and help you climb the ladder of fame.</p>
+  
+<p>You are now at the very bottom of this ladder, and you will 
+  need to prove yourself to the other users in this community in
+  order to become famous. In order to reach the first level of 
+  fame, you will need to earn 10,000 famos in investment. To be 
+  able to perform at a higher quality venue, you will need to earn 
+  20,000 famos.</p>
+  
+<p>That's my first advice to you: go talk to agents as frequently 
+  as possible and show your worth to them, as they are the people 
+  who invest in you.</p>
+  
+<p>Actually, you should go do that right away! There are a lot of 
+  other artists out there battling hard to gain their fame, and 
+  for now, your reputation in the community is yet to be built. 
+  Show us what you've got!</p>
+  
+<% elsif user_signed_in? # user must be agent %>
+
+<p>I am Y, a popular agent on Famocracy with a total of XXX famos
+  on return on investment. As a tradition on Famocracy, agents who 
+  gained fame are responsible for helping newbies reach a similar 
+  level. That means that I am at your disposal to answer your 
+  questions and help you climb the ladder of fame.</p>
+  
+<p>You are now at the very bottom of this ladder, and you will 
+  need to prove yourself to the other users in this community in
+  order to become famous. In order to reach the first level of 
+  fame, you will need to earn 10,000 famos in return on investment. 
+  To be able to book at a higher quality venue, you will need to 
+  earn 20,000 famos.</p>
+  
+<p>That's my first advice to you: go talk to artists as frequently 
+  as possible and show your worth to them, as they are the people 
+  who will make you money.</p>
+  
+<p>Actually, you should go do that right away! There are a lot of 
+  other agents out there battling hard to gain their fame, and 
+  for now, your reputation in the community is yet to be built. 
+  Show us what you've got!</p>
+    
+<% end %>
+<br>
+<p><center><a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
+    href="/">Understood</a></center></p>

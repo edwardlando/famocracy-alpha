@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @artist.user.name %>
+</p>
+
+<p>
+  <b>Money:</b>
+  <%= @artist.money %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @artist.level %>
+</p>
+
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

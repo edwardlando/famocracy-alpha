@@ -1,0 +1,27 @@
+<h1>Listing investments</h1>
+
+<table>
+  <tr>
+    <th>Artist</th>
+    <th>Agent</th>
+    <th>Amount</th>
+    <th>Invested</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @investments.each do |investment| %>
+  <tr>
+    <td><%= investment.artist.user.name %></td>
+    <td><%= investment.agent.user.name %></td>
+    <td>$<%= investment.amount %></td>
+    <td><%= investment.invested %></td>
+    <td><%= link_to 'Show', [investment.artist, investment] %></td>
+    <td><%= link_to 'Edit', edit_artist_investment_path(investment.artist.id, 
+      investment.id) %></td>
+    <td><%= link_to 'Destroy', artist_investment_path(investment.artist.id, 
+      investment.artist), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,7 @@
+<h1>Editing investment</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', [@investment.artist, @investment] %> |
+<%= link_to 'Destroy', artist_investment_path(@investment.artist.id, 
+      @investment.artist), confirm: 'Are you sure?', method: :delete %>

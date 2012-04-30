@@ -1,0 +1,25 @@
+<center><h2>My Dashboard</h2></center>
+
+<p>Welcome back! How would you like to become famous today?</p>
+
+<% if !user_signed_in? %>
+<p>You must sign in to access the dashboard!</p>
+
+<% elsif !current_user.artist.nil? # is the user an artist %>
+<p>
+  <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
+    href="/videos/new">Post a Video</a>
+  <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
+  	href="/jobs">Find a Job</a>
+  <a class="btn-large btn-primary" style="color:rgb(255,255,255)"
+    href="#">Marketing</a>
+  <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
+    href="#">Talk to your Agent</a>
+  <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
+    href="/home/book">Book a Show</a>
+</p>
+
+<% else %>
+<p>You must be an agent. We haven't quite yet set up the 
+  dashboard for you yet!</p>
+<% end %>

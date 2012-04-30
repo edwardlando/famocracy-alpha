@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  artist: 
+  agent: 
+  amount: 1
+  invested: 2012-04-21
+
+two:
+  artist: 
+  agent: 
+  amount: 1
+  invested: 2012-04-21

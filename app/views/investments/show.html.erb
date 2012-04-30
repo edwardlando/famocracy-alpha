@@ -1,0 +1,23 @@
+<p>
+  <b>Artist:</b>
+  <%= @investment.artist.user.name %>
+</p>
+
+<p>
+  <b>Agent:</b>
+  <%= @investment.agent.user.name %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  $<%= @investment.amount %>
+</p>
+
+<p>
+  <b>Invested:</b>
+  <%= @investment.invested %>
+</p>
+
+
+<%= link_to 'Edit', edit_artist_investment_path(@investment) %> |
+<%= link_to 'Back', artist_investments_path %>

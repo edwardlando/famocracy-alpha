@@ -1,0 +1,33 @@
+<% if user_signed_in? && current_user.agent? %>
+
+<%= form_for([@investment.artist, @investment]) do |f| %>
+  <% if @investment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@investment.errors.count, "error") %> prohibited this investment from being saved:</h2>
+
+      <ul>
+      <% @investment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount %>
+  </div>
+  <%= f.hidden_field :agent_id, :value => current_user.agent.id %>
+  <%= f.hidden_field :invested, :value => Date.today %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% elsif user_signed_in? # user is an artist %>
+  Artists cannot make investments - yet!
+  
+<% else %>
+  You must sign in as an agent in order to make an investment!
+<% end %>

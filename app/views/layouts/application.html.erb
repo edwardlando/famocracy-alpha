@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Famocracy</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <ul class="nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="#">The Garage</a></li>
+          <li><a href="#">Phi Alpha Mu</a></li>
+          <li><a href="#">Club Famo</a></li>
+          <li><a href="#">MSG</a></li>
+        </ul>
+        
+        <ul class="nav pull-right">
+          <% if user_signed_in? %> 
+            Signed in as <%= current_user.name %>. Not you? 
+            <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+          <% else %> 
+            <%= link_to "Sign up", new_user_registration_path %> or 
+            <%= link_to "Sign in", new_user_session_path %> 
+          <% end %>
+      </div>
+    </div>
+  </div>
+  
+</head>
+<body>
+  <div class="container">
+    <p class="notice"><%= notice %><%= alert %></p>
+    <div class="hero-unit" id="body">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

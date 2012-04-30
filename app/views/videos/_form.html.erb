@@ -1,0 +1,38 @@
+<% if user_signed_in? && !current_user.artist.nil? %>
+
+<%= form_for(@video) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% @video.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+   </div><br>
+  <div class="field">
+    Provide the YouTube ID to your video!<br>
+    For example, if your video is <strong>http://www.youtube.com/watch?v=VgqD77d34nE</strong>, <br>
+    you want to copy and paste the "VgqD77d34nE" part.<br>
+    <%= f.text_field :link %>
+  </div><br>
+  <%= f.hidden_field :artist_id, :value => current_user.artist.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% elsif current_user %>
+  Agents cannot post videos!
+
+<% else %>
+  Please sign in to post a video!
+  <br>
+<% end %>

@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Job description <br>
+    <%= f.text_field :description %> <br>
+  </div>
+  <div class="field">
+    How much do you want to pay for this to be completed? <br>
+    <%= f.number_field :pay %> <br>
+  </div>
+  <div class="field">
+  	Which date must this job be completed by? <br>
+  	<%= f.date_select :due %> <br>
+  <%= f.hidden_field :employee_id, :value => current_user.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% else %>
+	You need to sign in to create a job!
+<% end %>

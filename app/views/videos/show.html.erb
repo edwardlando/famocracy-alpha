@@ -1,0 +1,37 @@
+<% @video.views = @video.views + 1 %>
+
+<p>
+  <center><h2><%= @video.title %></h2>
+  <h3><%= link_to @video.artist.user.name, @video.artist %></h3></center>
+</p>
+
+<% @url = "http://www.youtube.com/v/".concat(@video.link).concat("?version=3&autoplay=1") %>
+
+<center>
+<object width="640" height="390">
+  <param name="movie"
+         value="<%= @url %>"></param>
+  <param name="allowScriptAccess" value="always"></param>
+  <embed src="<%= @url %>"
+         type="application/x-shockwave-flash"
+         allowscriptaccess="always"
+         width="640" height="390"></embed>
+</object>
+
+</center>
+
+<p><center>
+  <% if user_signed_in? && current_user.agent? %>
+    Like this artist? <%= link_to "Invest in him!", 
+      new_artist_investment_path(@video.artist) %>
+  <% end %>
+</center></p>
+
+<p>
+  <b>Views:</b>
+  <%= @video.views %>
+</p>
+  
+<% if user_signed_in? && current_user.eql?(@video.artist.user) %>
+  <%= link_to 'Edit', edit_video_path(@video) %> | <% end %>
+<%= link_to 'Back', videos_path %>
