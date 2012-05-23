@@ -1,11 +1,10 @@
 <center><h2>My Dashboard</h2></center>
 
-<p>Welcome back! How would you like to become famous today?</p>
-
 <% if !user_signed_in? %>
 <p>You must sign in to access the dashboard!</p>
 
 <% elsif !current_user.artist.nil? # is the user an artist %>
+<p>Welcome back! How would you like to become famous today?</p>
 <p>
   <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
     href="/videos/new">Post a Video</a>

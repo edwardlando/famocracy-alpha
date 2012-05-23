@@ -23,11 +23,11 @@
   <div class="field">
   	Which date must this job be completed by? <br>
   	<%= f.date_select :due %> <br>
-  <%= f.hidden_field :employee_id, :value => current_user.id %>
+    <%= f.hidden_field :employer_id, :value => current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
 <% else %>
-	You need to sign in to create a job!
+	You need to sign in to create or modify a job!
 <% end %>

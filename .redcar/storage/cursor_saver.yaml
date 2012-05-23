@@ -1,0 +1,105 @@
+--- 
+cursor_positions: 
+  - :path: app/controllers/investments_controller.rb
+    :cursor_offset: 1067
+    :timestamp: 2012-04-22 00:16:06 -04:00
+  - :path: app/views/investments/_form.html.erb
+    :cursor_offset: 353
+    :timestamp: 2012-04-30 18:48:08 -04:00
+    :selection_offset: 350
+    :block_selection_mode: false
+  - :path: app/models/agent.rb
+    :cursor_offset: 0
+    :timestamp: 2012-04-21 21:15:07 -04:00
+  - :path: app/models/artist.rb
+    :cursor_offset: 0
+    :timestamp: 2012-04-21 21:15:01 -04:00
+  - :path: app/views/jobs/_form.html.erb
+    :cursor_offset: 695
+    :timestamp: 2012-05-15 23:32:46 -04:00
+  - :path: db/migrate/20120420165103_devise_create_users.rb
+    :cursor_offset: 0
+    :timestamp: 2012-04-20 13:18:59 -04:00
+  - :path: db/migrate/20120420165534_create_artists.rb
+    :cursor_offset: 0
+    :timestamp: 2012-04-20 12:55:34 -04:00
+  - :path: app/views/videos/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-04-22 00:07:47 -04:00
+  - :path: app/models/video.rb
+    :cursor_offset: 55
+    :timestamp: 2012-04-20 15:21:59 -04:00
+  - :path: app/controllers/videos_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2012-04-20 13:27:47 -04:00
+  - :path: app/controllers/artists_controller.rb
+    :cursor_offset: 1196
+    :timestamp: 2012-04-21 22:00:20 -04:00
+    :selection_offset: 1077
+    :block_selection_mode: false
+  - :path: app/models/job.rb
+    :cursor_offset: 186
+    :timestamp: 2012-04-30 00:30:53 -04:00
+  - :path: app/views/artists/index.html.erb
+    :cursor_offset: 402
+    :timestamp: 2012-04-21 21:37:25 -04:00
+    :selection_offset: 477
+    :block_selection_mode: false
+  - :path: app/views/videos/_form.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-04-20 21:17:39 -04:00
+  - :path: app/views/videos/edit.html.erb
+    :cursor_offset: 112
+    :timestamp: 2012-05-16 01:33:33 -04:00
+  - :path: app/views/jobs/edit.html.erb
+    :cursor_offset: 276
+    :timestamp: 2012-05-16 01:35:25 -04:00
+  - :path: app/views/jobs/jury.html.erb
+    :cursor_offset: 97
+    :timestamp: 2012-05-16 01:39:54 -04:00
+  - :path: app/views/jobs/index.html.erb
+    :cursor_offset: 2169
+    :timestamp: 2012-05-16 01:32:28 -04:00
+  - :path: db/migrate/20120422011406_create_investments.rb
+    :cursor_offset: 0
+    :timestamp: 2012-04-21 21:14:06 -04:00
+  - :path: db/migrate/20120430032209_create_jobs.rb
+    :cursor_offset: 238
+    :timestamp: 2012-04-30 00:11:57 -04:00
+  - :path: db/migrate/20120417210228_create_videos.rb
+    :cursor_offset: 0
+    :timestamp: 2012-04-21 21:07:41 -04:00
+  - :path: app/views/notifications/new.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-05-21 08:51:05 -04:00
+  - :path: app/models/user.rb
+    :cursor_offset: 631
+    :timestamp: 2012-05-21 08:59:51 -04:00
+  - :path: db/migrate/20120521125104_create_notifications.rb
+    :cursor_offset: 219
+    :timestamp: 2012-05-21 08:53:36 -04:00
+  - :path: app/controllers/notifications_controller.rb
+    :cursor_offset: 449
+    :timestamp: 2012-05-21 09:05:08 -04:00
+  - :path: app/views/notifications/_form.html.erb
+    :cursor_offset: 730
+    :timestamp: 2012-05-21 09:01:25 -04:00
+  - :path: app/views/notifications/show.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-05-21 09:07:10 -04:00
+  - :path: config/routes.rb
+    :cursor_offset: 101
+    :timestamp: 2012-05-21 08:51:04 -04:00
+  - :path: app/views/notifications/index.html.erb
+    :cursor_offset: 122
+    :timestamp: 2012-05-21 09:09:28 -04:00
+  - :path: app/controllers/jobs_controller.rb
+    :cursor_offset: 3746
+    :timestamp: 2012-05-21 09:17:48 -04:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 1302
+    :timestamp: 2012-05-21 09:09:47 -04:00
+  - :path: app/views/home/index.html.erb
+    :cursor_offset: 241
+    :timestamp: 2012-05-21 09:10:47 -04:00
+files_to_retain: 0

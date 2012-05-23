@@ -1,25 +1,109 @@
-<h1>Listing jobs</h1>
+<% if user_signed_in? %>
+<h1>Available Jobs</h1>
 
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Pay</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<br>
 
 <% @jobs.each do |job| %>
-  <tr>
-    <td><%= job.description %></td>
-    <td><%= job.pay %></td>
-    <td><%= link_to 'Show', job %></td>
-    <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <% u = User.find(job.employer_id) %>
+  <% if job.employee_id.nil? && (current_user.artist? && u.artist? && 
+    !u.eql?(current_user)) || (current_user.agent? && 
+    u.agent? && !u.eql?(current_user)) %>
+    
+    <div class="row"><div class="span1">
+    <div class="container" style="background-color:white; 
+    border: 1px solid black; width: 400px">
+      <b>Job Description</b>: <%= job.description %> <br />
+      <b>Job Deadline</b>: <%= job.due %> <br />
+      <b>Job Pay</b>: <%= job.pay %>
+      <div style="text-align:right">
+        <%= link_to "Accept", accept_job_path(job), :method => 'put' %>
+      </div>
+    </div></div></div>
+    <p></p>
+    
+  <% end %>
 <% end %>
-</table>
 
-<br />
+<%= link_to 'Create a Job', new_job_path %>
 
-<%= link_to 'New Job', new_job_path %>
+</div></div><!-- ends hero unit and container -->
+
+<div class="container">
+<div class="row"><div class="span6">
+  <div class="hero-unit" id="body">
+    <h2>Your Accepted Jobs</h2> <br />
+    <% @jobs.each do |job| %>
+      <% if job.employee_id.eql?(current_user.id) && job.due >= Date.today %>
+        <div class="row"><div class="span1">
+        <div class="container" style="background-color:white; 
+        border: 1px solid black; width: 400px">
+        <b>Job Description</b>: <%= job.description %> <br />
+        <b>Job Deadline</b>: <%= job.due %> <br />
+        <b>Job Pay</b>: <%= job.pay %>
+        </div></div></div>
+        <p></p>
+      <% end %>
+    <% end %>
+</div></div>
+
+<div class="span6">
+  <div class="hero-unit" id="body">
+    <h2>Your Posted Jobs</h2> <br />
+    <% @jobs.each do |job| %>
+      <% if job.employer_id.eql?(current_user.id) && job.due >= Date.today %>
+        <div class="row"><div class="span1">
+        <div class="container" style="background-color:white; 
+        border: 1px solid black; width: 400px">
+        <b>Job Description</b>: <%= job.description %> <br />
+        <b>Job Deadline</b>: <%= job.due %> <br />
+        <b>Job Pay</b>: <%= job.pay %> <br />
+        <b>Job Employee</b>:
+         <% if job.employee_id.nil? %>
+          n/a <br /><br />
+          <%= link_to 'Edit', edit_job_path(job) %> | 
+          <%= link_to 'Delete', job, confirm: 'Are you sure?', method: :delete %>
+         <% else %>
+          <% @employee = User.find(job.employee_id) %>
+          <% @employee = @employee.specific %>
+          <%= link_to @employee.user.name, @employee %>
+        <% end %>
+        </div></div></div>
+        <p></p>
+      <% end %>
+    <% end %>
+</div></div></div></div>
+
+<div class="container">
+<div class="hero-unit" id="body">
+  <h1>Jobs to Act On</h1> <br />
+    <% @jobs.each do |job| %>
+      <% if job.employer_id.eql?(current_user.id) && job.due < Date.today %>
+        <div class="row"><div class="span1">
+        <div class="container" style="background-color:white; 
+        border: 1px solid black; width: 400px">
+        <b>Job Description</b>: <%= job.description %> <br />
+        <b>Job Deadline</b>: <%= job.due %> <br />
+        <b>Job Pay</b>: <%= job.pay %> <br />
+        <b>Job Employee</b>:
+         <% if job.employee_id.nil? %>
+          n/a
+         <% else %>
+          <% @employee = User.find(job.employee_id) %>
+          <% @employee = @employee.specific %>
+          <%= link_to @employee.user.name, @employee %>
+        <% end %>
+        
+        <br /><br />
+        <b>Completed?</b> 
+          <%= link_to 'Yes', completed_job_path(job), :method => 'put' %> | 
+          <%= link_to 'No', incompleted_job_path(job), :method => 'put' %>
+        
+        </div></div></div>
+        <p></p>
+      <% end %>
+    <% end %>
+</div></div>
+
+<% else %>
+You must be signed in to accept a job!
+<% end %>

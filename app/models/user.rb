@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   has_one :artist
   has_one :agent
+  has_many :notifications
   
   def artist?
     !artist.nil?
@@ -20,5 +21,13 @@ class User < ActiveRecord::Base
   
   def agent?
     !agent.nil?
+  end
+  
+  def specific
+    if artist?
+      artist
+    else
+      agent
+    end
   end
 end

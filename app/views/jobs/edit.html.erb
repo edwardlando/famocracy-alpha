@@ -1,6 +1,12 @@
-<h1>Editing job</h1>
+<% if user_signed_in? && @job.employer_id.eql?(current_user.id) && 
+  @job.employee_id.nil? && @job.due >= Date.today %>
+  <h1>Editing job</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @job %> |
-<%= link_to 'Back', jobs_path %>
+  <%= link_to 'Show', @job %> |
+  <%= link_to 'Back', jobs_path %>
+
+<% else %>
+  You cannot edit this job.
+<% end %>

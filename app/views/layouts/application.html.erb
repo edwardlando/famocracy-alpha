@@ -32,7 +32,14 @@
 </head>
 <body>
   <div class="container">
-    <p class="notice"><%= notice %><%= alert %></p>
+  <p class="notice"><%= notice %><%= alert %></p>
+  <p><% if user_signed_in? %>
+      <% current_user.notifications.each do |notification| %>
+        <% if !notification.read %>
+          <%= link_to notification.subject, notification %>
+        <% end %>
+      <% end %>
+    <% end %>
     <div class="hero-unit" id="body">
       <%= yield %>
     </div>

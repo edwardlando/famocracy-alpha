@@ -1,0 +1,29 @@
+<% if user_signed_in? %>
+
+<h1>Your Notifications</h1>
+
+<p></p>
+
+<table>
+  <tr>
+    <th>Subject</th>
+    <th></th>
+  </tr>
+
+<% current_user.notifications.each do |notification| %>
+  <tr>
+  <td><% if !notification.read %><b><% end %>
+      <%= link_to notification.subject, notification %>
+    <% if !notification.read %></b><% end %></td>
+    <td><%= link_to 'Delete', notification, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Notification', new_notification_path %>
+
+<% else %>
+  You cannot view your notifications, as you are not signed in.
+<% end %>

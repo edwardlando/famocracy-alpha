@@ -1,5 +1,14 @@
 Famocracy::Application.routes.draw do
-  resources :jobs
+  resources :notifications
+
+  resources :jobs do
+    member do
+      put 'accept'
+      put 'completed'
+      put 'incompleted'
+    end
+    match "/jobs/:id/jury" => "jobs#jury"
+  end
 
   resources :agents
   resources :artists do
