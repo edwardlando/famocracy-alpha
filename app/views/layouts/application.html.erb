@@ -6,29 +6,41 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   
-  <div class="navbar">
-    <div class="navbar-inner">
-      <div class="container">
-        <ul class="nav">
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+	<div class="container">
+	  <%= link_to "Famocracy", root_path, id: "logo" %>
+	  <nav>
+        <ul class="nav pull-left">
           <li class="active"><a href="/">Home</a></li>
-          <li><a href="#">The Garage</a></li>
-          <li><a href="#">Phi Alpha Mu</a></li>
-          <li><a href="#">Club Famo</a></li>
-          <li><a href="#">MSG</a></li>
+          <li><%= link_to "The Garage", "#" %></li>
+          <li><%= link_to "Frat House", "#"  %></li>
+          <li><%= link_to "Madison Square Garden", "#" %></li>
+          <li><%= link_to "Ultra Main Stage", "#" %></li>
         </ul>
-        
+
+        <% if user_signed_in? %> 
         <ul class="nav pull-right">
-          <% if user_signed_in? %> 
-            Signed in as <%= current_user.name %>. Not you? 
-            <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
-          <% else %> 
-            <%= link_to "Sign up", new_user_registration_path %> or 
-            <%= link_to "Sign in", new_user_session_path %> 
-          <% end %>
+          <li><%= link_to "Users", '#' %></li>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+            </a>
+   		  <ul class="dropdown-menu">
+		  <li><%= link_to "Profile", "#" %></li>
+		  <li><%= link_to "Settings", "#" %></li>
+		  <li class="divider"></li>
+		  <li>
+		    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		  </li>
+		</ul>
+	  </li>
+	<% else %>
+      <li><%= link_to "Sign in", new_user_session_path %></li>
+	<% end %>
       </div>
     </div>
-  </div>
-  
+   </div>
 </head>
 <body>
   <div class="container">

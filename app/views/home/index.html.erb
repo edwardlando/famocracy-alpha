@@ -1,7 +1,11 @@
 <center><h2>My Dashboard</h2></center>
 
 <% if !user_signed_in? %>
-<p>You must sign in to access the dashboard!</p>
+<p><center>
+	Hey, sign up or sign in to access your dashboard! <br>
+	<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+		
+</center></p>
 
 <% elsif !current_user.artist.nil? # is the user an artist %>
 <p>Welcome back! How would you like to become famous today?</p>
@@ -11,7 +15,7 @@
   <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
   	href="/jobs">Find a Job</a>
   <a class="btn-large btn-primary" style="color:rgb(255,255,255)"
-    href="#">Marketing</a>
+    href="#">Promote yourself</a>
   <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
     href="#">Talk to your Agent</a>
   <a class="btn-large btn-primary" style="color:rgb(255,255,255)" 
